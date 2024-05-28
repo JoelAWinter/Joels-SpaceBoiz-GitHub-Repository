@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
 const max_speed = 80
-const accel = 600
+const accel = 400
 const friction = 200
 
 var input = Vector2.ZERO
@@ -27,4 +27,3 @@ func player_movement(delta):
 		velocity = velocity.limit_length(max_speed)
 		
 	move_and_slide()
-	
