@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://ci00lcl0jgrx3"]
+[gd_scene load_steps=6 format=3 uid="uid://ci00lcl0jgrx3"]
 
 [ext_resource type="Texture2D" uid="uid://be5w0ql3jsmp3" path="res://art/Enemy art.png" id="1_1s25s"]
 [ext_resource type="Script" path="res://Enemy1.gd" id="1_ntqlw"]
@@ -8,6 +8,9 @@ size = Vector2(10, 8)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_q5fek"]
 radius = 66.0303
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_avckh"]
+radius = 17.0
 
 [node name="Enemy1" type="CharacterBody2D"]
 script = ExtResource("1_ntqlw")
@@ -24,6 +27,11 @@ texture = ExtResource("1_1s25s")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource("CircleShape2D_q5fek")
+
+[node name="enemy_hitbox" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="enemy_hitbox"]
+shape = SubResource("CircleShape2D_avckh")
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]
