@@ -3,8 +3,8 @@
 [ext_resource type="Texture2D" uid="uid://be5w0ql3jsmp3" path="res://art/Enemy art.png" id="1_1s25s"]
 [ext_resource type="Script" path="res://Enemy1.gd" id="1_ntqlw"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_8el2y"]
-radius = 5.0
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_n13kr"]
+size = Vector2(10, 8)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_q5fek"]
 radius = 66.0303
@@ -13,8 +13,8 @@ radius = 66.0303
 script = ExtResource("1_ntqlw")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, 8)
-shape = SubResource("CircleShape2D_8el2y")
+position = Vector2(0, 9)
+shape = SubResource("RectangleShape2D_n13kr")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(0, -1)
