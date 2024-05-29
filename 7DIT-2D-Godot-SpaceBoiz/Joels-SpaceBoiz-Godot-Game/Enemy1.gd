@@ -7,7 +7,7 @@ var player = null
 func _physics_process(delta):
 	if player_chase:
 		velocity = (player.position - position).normalized() * speed
-		move_and_slide()
+		move_and_collide(velocity * delta)
 
 func _on_area_2d_body_entered(body):
 	player = body
