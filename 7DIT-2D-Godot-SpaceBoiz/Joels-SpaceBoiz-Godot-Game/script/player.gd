@@ -57,7 +57,7 @@ func enemy_attack():
 		health = health - 10
 		enemy_attack_cooldown = false
 		$attack_cooldown.start()
-		print(health)
+		print("player health = ", health)
 
 func _on_attack_cooldown_timeout():
 	enemy_attack_cooldown = true
