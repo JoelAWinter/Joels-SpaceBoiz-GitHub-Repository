@@ -2,13 +2,13 @@
 
 [ext_resource type="Texture2D" uid="uid://cg6te3ytvx7o2" path="res://art/SpaceBoiz Moon Textures.png" id="1_61dh5"]
 [ext_resource type="Texture2D" uid="uid://430jlcefat4e" path="res://art/New Piskel.png" id="1_qjetf"]
-[ext_resource type="PackedScene" uid="uid://u4kgrk72nysw" path="res://player.tscn" id="3_ec2tc"]
+[ext_resource type="PackedScene" uid="uid://u4kgrk72nysw" path="res://scenes/player.tscn" id="3_ec2tc"]
 [ext_resource type="Texture2D" uid="uid://b22vi5vxwsgtt" path="res://art/SpaceBoiz Moon Textures (updated).png" id="3_yeb7r"]
 [ext_resource type="Texture2D" uid="uid://0f42q83r7hgd" path="res://art/moon ground.png" id="4_qhqpb"]
 [ext_resource type="Texture2D" uid="uid://yyijjsbqd8qj" path="res://art/moon ground (texture 2).png" id="5_d76r2"]
 [ext_resource type="Texture2D" uid="uid://bj00sk8h2oe02" path="res://art/moon ground set (texture 3).png" id="6_dqht5"]
 [ext_resource type="Texture2D" uid="uid://dqh8io1jhqhh" path="res://art/moon ground (corners).png" id="7_fowpb"]
-[ext_resource type="PackedScene" uid="uid://ci00lcl0jgrx3" path="res://enemy_1.tscn" id="9_wmf08"]
+[ext_resource type="PackedScene" uid="uid://ci00lcl0jgrx3" path="res://scenes/enemy_1.tscn" id="9_wmf08"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_t0hbu"]
 texture = ExtResource("1_qjetf")

@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://ci00lcl0jgrx3"]
 
-[ext_resource type="Texture2D" uid="uid://be5w0ql3jsmp3" path="res://art/Enemy art.png" id="1_1s25s"]
-[ext_resource type="Script" path="res://Enemy1.gd" id="1_ntqlw"]
+[ext_resource type="Script" path="res://script/Enemy1.gd" id="1_kxif1"]
+[ext_resource type="Texture2D" uid="uid://be5w0ql3jsmp3" path="res://art/Enemy art.png" id="2_xng03"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_n13kr"]
 size = Vector2(10, 8)
@@ -13,7 +13,7 @@ radius = 66.0303
 radius = 17.0
 
 [node name="Enemy1" type="CharacterBody2D"]
-script = ExtResource("1_ntqlw")
+script = ExtResource("1_kxif1")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 9)
@@ -21,7 +21,7 @@ shape = SubResource("RectangleShape2D_n13kr")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(0, -1)
-texture = ExtResource("1_1s25s")
+texture = ExtResource("2_xng03")
 
 [node name="Area2D" type="Area2D" parent="."]
 
@@ -33,5 +33,13 @@ shape = SubResource("CircleShape2D_q5fek")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="enemy_hitbox"]
 shape = SubResource("CircleShape2D_avckh")
 
+[node name="take_damage_cooldown" type="Timer" parent="."]
+wait_time = 0.5
+
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]
+[connection signal="body_entered" from="enemy_hitbox" to="." method="_on_enemy_hitbox_body_entered"]
+[connection signal="body_exited" from="enemy_hitbox" to="." method="_on_enemy_hitbox_body_exited"]
+[connection signal="body_shape_entered" from="enemy_hitbox" to="." method="_on_enemy_hitbox_body_shape_entered"]
+[connection signal="body_shape_exited" from="enemy_hitbox" to="." method="_on_enemy_hitbox_body_shape_exited"]
+[connection signal="timeout" from="take_damage_cooldown" to="." method="_on_take_damage_cooldown_timeout"]
