@@ -10,8 +10,8 @@ var health = 100
 var player_alive = true
 var input = Vector2.ZERO
 
-
 func _physics_process(delta):
+	update_health()
 	player_movement(delta)
 	enemy_attack()
 	attack()
@@ -69,4 +69,15 @@ func attack():
 func _on_deal_attck_timer_timeout():
 	$deal_attack_timer.stop()
 	global.player_current_attack = false
-	
+
+func update_health():
+	var healthbar = $healthbar
+	healthbar.value = health
+
+func _on_regin_timer_timeout():
+	if health < 100:
+		health = health + 20
+		if health > 100:
+			health = 100
+	if health <= 0:
+		health = 0

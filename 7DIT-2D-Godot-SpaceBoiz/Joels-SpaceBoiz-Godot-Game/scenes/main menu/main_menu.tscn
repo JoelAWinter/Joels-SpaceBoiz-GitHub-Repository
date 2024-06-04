@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://dyw7epxnupvor"]
 
-[ext_resource type="Script" path="res://scenes/main menu/main_menu.gd" id="1_mpdtw"]
-[ext_resource type="Texture2D" uid="uid://cws0lrrp15kkg" path="res://scenes/main menu/Menu Screen 2.png" id="2_njjbj"]
+[ext_resource type="Script" path="res://script/main_menu.gd" id="1_h7iyv"]
+[ext_resource type="Texture2D" uid="uid://cws0lrrp15kkg" path="res://art/Menu Screen 2.png" id="2_3n6tu"]
 
 [sub_resource type="SystemFont" id="SystemFont_qjtju"]
 font_names = PackedStringArray("Impact")
@@ -16,7 +16,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_mpdtw")
+script = ExtResource("1_h7iyv")
 
 [node name="TextureRect" type="TextureRect" parent="."]
 layout_mode = 1
@@ -25,7 +25,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("2_njjbj")
+texture = ExtResource("2_3n6tu")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 1
