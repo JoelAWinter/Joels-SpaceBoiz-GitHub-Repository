@@ -3,7 +3,7 @@ extends CharacterBody2D
 var player_chase = false
 var speed = 60
 var player = null
-var health = 100
+var health = 240
 var player_inattack_zone = false
 var can_take_damage = true
 
@@ -43,6 +43,7 @@ func deal_with_damage():
 			print("slime health = ", health)
 			if health <= 0:
 				self.queue_free()
+				#get_tree().change_scene_to_file("res://scenes/main menu/main_menu.tscn")
 
 
 func _on_take_damage_cooldown_timeout():

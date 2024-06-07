@@ -7,7 +7,7 @@
 size = Vector2(17, 13.5)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_v8cps"]
-radius = 26.0
+radius = 23.0
 
 [node name="player" type="CharacterBody2D"]
 script = ExtResource("1_x8yxy")
@@ -24,7 +24,7 @@ shape = SubResource("RectangleShape2D_0wj4x")
 [node name="player_hitbox" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="player_hitbox"]
-position = Vector2(0, -12)
+position = Vector2(0, -10)
 shape = SubResource("CircleShape2D_v8cps")
 
 [node name="attack_cooldown" type="Timer" parent="."]
@@ -32,15 +32,15 @@ wait_time = 0.5
 
 [node name="healthbar" type="ProgressBar" parent="."]
 modulate = Color(0.380392, 0.752941, 0.368627, 1)
-offset_left = -11.0
+offset_left = -15.0
 offset_top = 11.0
-offset_right = 209.0
-offset_bottom = 61.0
+offset_right = 285.0
+offset_bottom = 71.0
 scale = Vector2(0.1, 0.1)
 show_percentage = false
 
 [node name="regin_timer" type="Timer" parent="."]
-wait_time = 5.0
+wait_time = 4.0
 autostart = true
 
 [connection signal="body_entered" from="player_hitbox" to="." method="_on_player_hitbox_body_entered"]
