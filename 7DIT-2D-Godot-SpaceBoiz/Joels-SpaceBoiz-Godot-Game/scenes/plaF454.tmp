@@ -418,9 +418,9 @@ radius = 26.0192
 script = ExtResource("1_x8yxy")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(0, -13)
+position = Vector2(0, 8)
 sprite_frames = SubResource("SpriteFrames_dufmi")
-animation = &"side_walk"
+animation = &"side-attack"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 4)
@@ -429,7 +429,7 @@ shape = SubResource("RectangleShape2D_0wj4x")
 [node name="player_hitbox" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="player_hitbox"]
-position = Vector2(0, 4)
+position = Vector2(0, -5)
 shape = SubResource("CircleShape2D_v8cps")
 
 [node name="attack_cooldown" type="Timer" parent="."]

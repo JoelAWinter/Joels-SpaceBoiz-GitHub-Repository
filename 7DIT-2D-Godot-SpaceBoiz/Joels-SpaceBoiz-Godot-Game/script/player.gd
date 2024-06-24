@@ -1,9 +1,8 @@
 extends CharacterBody2D
 
-const max_speed = 80
-const accel = 400
-const friction = 200
+const speed = 100
 
+var current_dir = "none"
 var enemy_in_attack_range = false
 var enemy_attack_cooldown = true
 var health = 100
@@ -11,35 +10,72 @@ var player_alive = true
 var input = Vector2.ZERO
 
 func _physics_process(delta):
-	update_health()
 	player_movement(delta)
+	update_health()
 	enemy_attack()
 	attack()
-	
+
 	if health <= 0:
 		player_alive = false
 		get_tree().change_scene_to_file("res://scenes/main menu/main_menu.tscn")
-	
-func get_input():
-	input.x = int(Input.is_action_pressed("ui_right")) - int(Input.is_action_pressed("ui_left"))
-	input.y = int(Input.is_action_pressed("ui_down")) - int(Input.is_action_pressed("ui_up"))
-	return input.normalized()
-	
+
 func player_movement(delta):
-	input = get_input()
-	
-	if input == Vector2.ZERO:
-		if velocity.length() > (friction * delta):
-			velocity -= velocity.normalized() * (friction * delta)
-		else:
-			velocity = Vector2.ZERO
+	if Input.is_action_pressed("ui_right"):
+		current_dir = "right"
+		play_anim(1)
+		velocity.x = speed
+		velocity.y = 0
+	elif Input.is_action_pressed("ui_left"):
+		current_dir = "left"
+		play_anim(1)
+		velocity.x = -speed
+		velocity.y = 0
+	elif Input.is_action_pressed("ui_down"):
+		current_dir = "down"
+		play_anim(1)
+		velocity.y = speed
+		velocity.x = 0
+	elif Input.is_action_pressed("ui_up"):
+		current_dir = "up"
+		play_anim(1)
+		velocity.y = -speed
+		velocity.x = 0
 	else:
-		velocity += (input * accel * delta)
-		velocity = velocity.limit_length(max_speed)
-		
+		play_anim(0)
+		velocity.x = 0
+		velocity.y = 0
+	
 	move_and_slide()
 
-
+func play_anim(movement):
+	var dir = current_dir
+	var anim = $AnimatedSprite2D
+	
+	if dir == "right":
+		anim.flip_h = false
+		if movement == 1:
+			anim.play("side_walk")
+		elif movement == 0:
+			anim.play("side_idle")
+	if dir == "left":
+		anim.flip_h = true
+		if movement == 1:
+			anim.play("side_walk")
+		elif movement == 0:
+			anim.play("side_idle")
+	if dir == "down":
+		anim.flip_h = true
+		if movement == 1:
+			anim.play("front_walk")
+		elif movement == 0:
+			anim.play("front_idle")
+	if dir == "up":
+		anim.flip_h = true
+		if movement == 1:
+			anim.play("back_walk")
+		elif movement == 0:
+			anim.play("back_idle")
+			
 func player():
 	pass
 	

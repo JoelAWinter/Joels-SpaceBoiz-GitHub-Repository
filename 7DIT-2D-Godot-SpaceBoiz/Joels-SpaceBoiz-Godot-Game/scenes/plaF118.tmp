@@ -1,0 +1,93 @@
+[gd_scene load_steps=11 format=3 uid="uid://u4kgrk72nysw"]
+
+[ext_resource type="Script" path="res://script/player.gd" id="1_x8yxy"]
+[ext_resource type="Texture2D" uid="uid://bhh0l4wckr1sp" path="res://art/Player_animation_v2 (1).png" id="2_g66bf"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k18s5"]
+atlas = ExtResource("2_g66bf")
+region = Rect2(0, 0, 32, 42)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wapa5"]
+atlas = ExtResource("2_g66bf")
+region = Rect2(32, 0, 32, 42)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1kr6o"]
+atlas = ExtResource("2_g66bf")
+region = Rect2(64, 0, 32, 42)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nb1mk"]
+atlas = ExtResource("2_g66bf")
+region = Rect2(96, 0, 32, 42)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_45504"]
+atlas = ExtResource("2_g66bf")
+region = Rect2(128, 0, 32, 42)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_6r24p"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k18s5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wapa5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1kr6o")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nb1mk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_45504")
+}],
+"loop": true,
+"name": &"Front_idle_v1",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0wj4x"]
+size = Vector2(17, 13.5)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_v8cps"]
+radius = 26.0192
+
+[node name="player" type="CharacterBody2D"]
+script = ExtResource("1_x8yxy")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_6r24p")
+animation = &"Front_idle_v1"
+frame = 3
+frame_progress = 0.623526
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 1.75)
+shape = SubResource("RectangleShape2D_0wj4x")
+
+[node name="player_hitbox" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="player_hitbox"]
+position = Vector2(1, -13)
+shape = SubResource("CircleShape2D_v8cps")
+
+[node name="attack_cooldown" type="Timer" parent="."]
+wait_time = 0.5
+
+[node name="healthbar" type="ProgressBar" parent="."]
+modulate = Color(0.380392, 0.752941, 0.368627, 1)
+offset_left = -15.0
+offset_top = 11.0
+offset_right = 285.0
+offset_bottom = 71.0
+scale = Vector2(0.1, 0.1)
+show_percentage = false
+
+[node name="regin_timer" type="Timer" parent="."]
+wait_time = 4.0
+autostart = true
+
+[connection signal="body_entered" from="player_hitbox" to="." method="_on_player_hitbox_body_entered"]
+[connection signal="body_exited" from="player_hitbox" to="." method="_on_player_hitbox_body_exited"]
+[connection signal="timeout" from="attack_cooldown" to="." method="_on_attack_cooldown_timeout"]
+[connection signal="timeout" from="regin_timer" to="." method="_on_regin_timer_timeout"]
