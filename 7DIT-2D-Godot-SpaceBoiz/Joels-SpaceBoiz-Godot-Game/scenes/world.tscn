@@ -353,8 +353,8 @@ offset_bottom = 40.0
 layout_mode = 0
 offset_left = 320.0
 offset_top = 286.0
-offset_right = 435.0
-offset_bottom = 363.0
+offset_right = 445.0
+offset_bottom = 374.0
 text = "  Objectives:
 - Explore map
 - Kill Enemy"

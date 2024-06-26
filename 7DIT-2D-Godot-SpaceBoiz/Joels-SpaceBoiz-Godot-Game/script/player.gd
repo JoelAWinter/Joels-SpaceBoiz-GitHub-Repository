@@ -44,7 +44,7 @@ func player_movement(delta):
 		play_anim(0)
 		velocity.x = 0
 		velocity.y = 0
-	
+		
 	move_and_slide()
 
 func play_anim(movement):
