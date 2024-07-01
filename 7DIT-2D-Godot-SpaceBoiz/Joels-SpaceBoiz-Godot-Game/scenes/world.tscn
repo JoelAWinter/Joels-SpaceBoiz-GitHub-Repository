@@ -336,6 +336,7 @@ position = Vector2(270, 335)
 
 [node name="FollowCam" type="Camera2D" parent="player"]
 position = Vector2(2, -2)
+scale = Vector2(0.6, 0.6)
 zoom = Vector2(5, 5)
 limit_left = 0
 limit_top = 0

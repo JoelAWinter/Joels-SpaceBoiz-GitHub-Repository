@@ -7,7 +7,7 @@ var enemy_in_attack_range = false
 var enemy_attack_cooldown = true
 var health = 100
 var player_alive = true
-var input = Vector2.ZERO
+var attack_ip = false
 
 func _physics_process(delta):
 	player_movement(delta)
@@ -56,25 +56,29 @@ func play_anim(movement):
 		if movement == 1:
 			anim.play("side_walk")
 		elif movement == 0:
-			anim.play("side_idle")
+			if attack_ip == false:
+				anim.play("side_idle")
 	if dir == "left":
 		anim.flip_h = true
 		if movement == 1:
 			anim.play("side_walk")
 		elif movement == 0:
-			anim.play("side_idle")
+			if attack_ip == false:
+				anim.play("side_idle")
 	if dir == "down":
 		anim.flip_h = true
 		if movement == 1:
 			anim.play("front_walk")
 		elif movement == 0:
-			anim.play("front_idle")
+			if attack_ip == false:
+				anim.play("front_idle")
 	if dir == "up":
 		anim.flip_h = true
 		if movement == 1:
 			anim.play("back_walk")
 		elif movement == 0:
-			anim.play("back_idle")
+			if attack_ip == false:
+				anim.play("back_idle")
 			
 func player():
 	pass
@@ -99,13 +103,26 @@ func _on_attack_cooldown_timeout():
 	enemy_attack_cooldown = true
 
 func attack():
+	var dir = current_dir
+	
 	if Input.is_action_just_pressed("attack"):
 		global.player_current_attack = true
-		
-func _on_deal_attck_timer_timeout():
-	$deal_attack_timer.stop()
-	global.player_current_attack = false
-
+		attack_ip = true
+		if dir == "right":
+			$AnimatedSprite2D.flip_h = false
+			$AnimatedSprite2D.play("side_attack")
+			$deal_attack_timer.start()
+		if dir == "left":
+			$AnimatedSprite2D.flip_h = true
+			$AnimatedSprite2D.play("side_attack")
+			$deal_attack_timer.start()
+		if dir == "down":
+			$AnimatedSprite2D.play("front_attack")
+			$deal_attack_timer.start()
+		if dir == "up":
+			$AnimatedSprite2D.play("back_attack")
+			$deal_attack_timer.start()
+	
 func update_health():
 	var healthbar = $healthbar
 	healthbar.value = health
@@ -117,3 +134,9 @@ func _on_regin_timer_timeout():
 			health = 100
 	if health <= 0:
 		health = 0
+
+func _on_deal_attack_timer_timeout():
+	$deal_attack_timer.stop()
+	global.player_current_attack = false
+	attack_ip = false
+
