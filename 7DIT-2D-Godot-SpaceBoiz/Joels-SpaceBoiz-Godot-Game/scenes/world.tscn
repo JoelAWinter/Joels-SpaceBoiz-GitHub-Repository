@@ -335,7 +335,7 @@ position = Vector2(395, 121)
 position = Vector2(270, 335)
 
 [node name="FollowCam" type="Camera2D" parent="player"]
-position = Vector2(2, -2)
+position = Vector2(13, -18)
 scale = Vector2(0.6, 0.6)
 zoom = Vector2(5, 5)
 limit_left = 0
@@ -352,11 +352,24 @@ offset_bottom = 40.0
 
 [node name="Objectives" type="Button" parent="Level1GUI"]
 layout_mode = 0
-offset_left = 320.0
-offset_top = 286.0
-offset_right = 445.0
-offset_bottom = 374.0
+offset_left = 101.0
+offset_top = 273.0
+offset_right = 176.0
+offset_bottom = 323.0
+theme_override_font_sizes/font_size = 10
 text = "  Objectives:
 - Explore map
 - Kill Enemy"
 alignment = 0
+
+[node name="tutorial" type="Button" parent="Level1GUI"]
+layout_mode = 0
+offset_left = 316.0
+offset_top = 284.0
+offset_right = 465.0
+offset_bottom = 348.0
+theme_override_font_sizes/font_size = 10
+text = "Use arrow keys to move:
+^ v < >
+Attack Enemy with SpaceBar:
+[________]"

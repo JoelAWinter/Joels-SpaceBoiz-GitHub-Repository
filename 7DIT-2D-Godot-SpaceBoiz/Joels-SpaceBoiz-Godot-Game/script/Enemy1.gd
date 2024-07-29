@@ -8,6 +8,7 @@ var player_inattack_zone = false
 var can_take_damage = true
 
 func _physics_process(delta):
+	update_health()
 	deal_with_damage()
 	
 	if player_chase:
@@ -48,3 +49,7 @@ func deal_with_damage():
 
 func _on_take_damage_cooldown_timeout():
 	can_take_damage = true
+
+func update_health():
+	var healthbar = $healthbar
+	healthbar.value = health
