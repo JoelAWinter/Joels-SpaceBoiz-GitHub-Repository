@@ -1,0 +1,90 @@
+[gd_scene load_steps=13 format=3 uid="uid://hm1hhi041hmx"]
+
+[ext_resource type="Script" path="res://script/oxygentank.gd" id="1_cgkwm"]
+[ext_resource type="Texture2D" uid="uid://b5mq5k5hqamw1" path="res://art/Oxygen Tank (3).png" id="2_utc4v"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yqcmk"]
+atlas = ExtResource("2_utc4v")
+region = Rect2(0, 32, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xxyin"]
+atlas = ExtResource("2_utc4v")
+region = Rect2(16, 32, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4iopr"]
+atlas = ExtResource("2_utc4v")
+region = Rect2(32, 32, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ia3ej"]
+atlas = ExtResource("2_utc4v")
+region = Rect2(48, 32, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oqu8t"]
+atlas = ExtResource("2_utc4v")
+region = Rect2(0, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yb66r"]
+atlas = ExtResource("2_utc4v")
+region = Rect2(16, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_egb5d"]
+atlas = ExtResource("2_utc4v")
+region = Rect2(32, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vk06h"]
+atlas = ExtResource("2_utc4v")
+region = Rect2(48, 0, 16, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_rrxtf"]
+resource_local_to_scene = true
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yqcmk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xxyin")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4iopr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ia3ej")
+}],
+"loop": true,
+"name": &"Collected",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_oqu8t")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yb66r")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_egb5d")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vk06h")
+}],
+"loop": true,
+"name": &"Idle",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_gy75l"]
+radius = 16.0312
+
+[node name="oxygentank" type="Area2D"]
+script = ExtResource("1_cgkwm")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_rrxtf")
+animation = &"Collected"
+autoplay = "Idle"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_gy75l")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

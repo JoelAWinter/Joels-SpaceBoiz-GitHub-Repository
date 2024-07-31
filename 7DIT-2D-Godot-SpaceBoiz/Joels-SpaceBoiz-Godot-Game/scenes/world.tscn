@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://ynlnohbhqvcy"]
+[gd_scene load_steps=19 format=3 uid="uid://ynlnohbhqvcy"]
 
 [ext_resource type="Texture2D" uid="uid://cg6te3ytvx7o2" path="res://art/SpaceBoiz Moon Textures.png" id="1_61dh5"]
 [ext_resource type="Texture2D" uid="uid://430jlcefat4e" path="res://art/New Piskel.png" id="1_qjetf"]
@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://bj00sk8h2oe02" path="res://art/moon ground set (texture 3).png" id="6_dqht5"]
 [ext_resource type="Texture2D" uid="uid://dqh8io1jhqhh" path="res://art/moon ground (corners).png" id="7_fowpb"]
 [ext_resource type="PackedScene" uid="uid://ci00lcl0jgrx3" path="res://scenes/enemy_1.tscn" id="9_wmf08"]
+[ext_resource type="PackedScene" uid="uid://hm1hhi041hmx" path="res://scenes/oxygentank.tscn" id="10_bb8rv"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_t0hbu"]
 texture = ExtResource("1_qjetf")
@@ -373,3 +374,6 @@ text = "Use arrow keys to move:
 ^ v < >
 Attack Enemy with SpaceBar:
 [________]"
+
+[node name="oxygentank" parent="." instance=ExtResource("10_bb8rv")]
+position = Vector2(280, 256)

@@ -40,10 +40,10 @@ wait_time = 0.5
 
 [node name="healthbar" type="ProgressBar" parent="."]
 modulate = Color(0.380392, 0.752941, 0.368627, 1)
-offset_left = -9.0
+offset_left = -11.0
 offset_top = 15.0
-offset_right = 171.0
-offset_bottom = 42.0
+offset_right = 209.0
+offset_bottom = 75.0
 scale = Vector2(0.1, 0.1)
 max_value = 240.0
 show_percentage = false
