@@ -1,22 +1,23 @@
-[gd_scene load_steps=13 format=3 uid="uid://hm1hhi041hmx"]
+[gd_scene load_steps=14 format=3 uid="uid://hm1hhi041hmx"]
 
 [ext_resource type="Script" path="res://script/oxygentank.gd" id="1_cgkwm"]
+[ext_resource type="Texture2D" uid="uid://evyhso0612my" path="res://art/Oxygen Tank (4).png" id="2_8b7v2"]
 [ext_resource type="Texture2D" uid="uid://b5mq5k5hqamw1" path="res://art/Oxygen Tank (3).png" id="2_utc4v"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_yqcmk"]
-atlas = ExtResource("2_utc4v")
+[sub_resource type="AtlasTexture" id="AtlasTexture_icpk2"]
+atlas = ExtResource("2_8b7v2")
 region = Rect2(0, 32, 16, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_xxyin"]
-atlas = ExtResource("2_utc4v")
+[sub_resource type="AtlasTexture" id="AtlasTexture_1lb4y"]
+atlas = ExtResource("2_8b7v2")
 region = Rect2(16, 32, 16, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_4iopr"]
-atlas = ExtResource("2_utc4v")
+[sub_resource type="AtlasTexture" id="AtlasTexture_swawl"]
+atlas = ExtResource("2_8b7v2")
 region = Rect2(32, 32, 16, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_ia3ej"]
-atlas = ExtResource("2_utc4v")
+[sub_resource type="AtlasTexture" id="AtlasTexture_hvop2"]
+atlas = ExtResource("2_8b7v2")
 region = Rect2(48, 32, 16, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_oqu8t"]
@@ -36,22 +37,21 @@ atlas = ExtResource("2_utc4v")
 region = Rect2(48, 0, 16, 32)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_rrxtf"]
-resource_local_to_scene = true
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_yqcmk")
+"texture": SubResource("AtlasTexture_icpk2")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_xxyin")
+"texture": SubResource("AtlasTexture_1lb4y")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_4iopr")
+"texture": SubResource("AtlasTexture_swawl")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_ia3ej")
+"texture": SubResource("AtlasTexture_hvop2")
 }],
-"loop": true,
+"loop": false,
 "name": &"Collected",
 "speed": 5.0
 }, {

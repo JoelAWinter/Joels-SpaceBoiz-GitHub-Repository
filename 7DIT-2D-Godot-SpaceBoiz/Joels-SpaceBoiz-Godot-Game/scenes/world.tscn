@@ -377,3 +377,9 @@ Attack Enemy with SpaceBar:
 
 [node name="oxygentank" parent="." instance=ExtResource("10_bb8rv")]
 position = Vector2(280, 256)
+
+[node name="oxygentank2" parent="." instance=ExtResource("10_bb8rv")]
+position = Vector2(473, 167)
+
+[node name="oxygentank3" parent="." instance=ExtResource("10_bb8rv")]
+position = Vector2(99, 112)
