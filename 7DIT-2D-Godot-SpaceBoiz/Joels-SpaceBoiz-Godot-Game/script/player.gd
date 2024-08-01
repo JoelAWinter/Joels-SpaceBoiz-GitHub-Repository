@@ -8,8 +8,10 @@ var enemy_attack_cooldown = true
 var health = 100
 var player_alive = true
 var attack_ip = false
+var oxygen = 100
 
 func _physics_process(delta):
+	update_oxygen()
 	player_movement(delta)
 	update_health()
 	enemy_attack()
@@ -140,3 +142,18 @@ func _on_deal_attack_timer_timeout():
 	global.player_current_attack = false
 	attack_ip = false
 
+func update_oxygen():
+	var oxygenbar = $oxygenbar
+	oxygenbar.value = global.oxygen_bar
+	
+func _on_oxygentimer_timeout():
+	if global.oxygen_bar <= 100:
+		global.oxygen_bar = global.oxygen_bar - 20
+		if global.oxygen_bar > 100:
+			global.oxygen_bar = 100
+	if global.oxygen_bar <= 0:
+		global.oxygen_bar = 0
+		player_alive = false
+		get_tree().change_scene_to_file("res://scenes/main menu/main_menu.tscn")
+		
+		

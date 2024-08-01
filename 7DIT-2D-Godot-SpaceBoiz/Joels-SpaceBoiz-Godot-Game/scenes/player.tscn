@@ -367,8 +367,22 @@ autostart = true
 [node name="deal_attack_timer" type="Timer" parent="."]
 wait_time = 0.5
 
+[node name="oxygenbar" type="ProgressBar" parent="."]
+modulate = Color(0.603922, 0.94902, 0.94902, 1)
+offset_left = -15.0
+offset_top = 19.0
+offset_right = 285.0
+offset_bottom = 79.0
+scale = Vector2(0.1, 0.1)
+show_percentage = false
+
+[node name="oxygentimer" type="Timer" parent="."]
+wait_time = 4.0
+autostart = true
+
 [connection signal="body_entered" from="player_hitbox" to="." method="_on_player_hitbox_body_entered"]
 [connection signal="body_exited" from="player_hitbox" to="." method="_on_player_hitbox_body_exited"]
 [connection signal="timeout" from="attack_cooldown" to="." method="_on_attack_cooldown_timeout"]
 [connection signal="timeout" from="regin_timer" to="." method="_on_regin_timer_timeout"]
 [connection signal="timeout" from="deal_attack_timer" to="." method="_on_deal_attack_timer_timeout"]
+[connection signal="timeout" from="oxygentimer" to="." method="_on_oxygentimer_timeout"]
