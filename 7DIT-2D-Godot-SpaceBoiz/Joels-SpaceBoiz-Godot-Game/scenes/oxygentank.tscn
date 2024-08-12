@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://hm1hhi041hmx"]
+[gd_scene load_steps=16 format=3 uid="uid://hm1hhi041hmx"]
 
 [ext_resource type="Script" path="res://script/oxygentank.gd" id="1_cgkwm"]
 [ext_resource type="Texture2D" uid="uid://evyhso0612my" path="res://art/Oxygen Tank (4).png" id="2_8b7v2"]
@@ -76,15 +76,30 @@ animations = [{
 [sub_resource type="CircleShape2D" id="CircleShape2D_gy75l"]
 radius = 16.0312
 
+[sub_resource type="Gradient" id="Gradient_fw0bo"]
+offsets = PackedFloat32Array(0, 0.63871)
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_unnw3"]
+gradient = SubResource("Gradient_fw0bo")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+
 [node name="oxygentank" type="Area2D"]
 script = ExtResource("1_cgkwm")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_rrxtf")
-animation = &"Collected"
+animation = &"Idle"
 autoplay = "Idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_gy75l")
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+position = Vector2(1, 0)
+color = Color(0, 0.803922, 0.803922, 1)
+energy = 0.5
+texture = SubResource("GradientTexture2D_unnw3")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

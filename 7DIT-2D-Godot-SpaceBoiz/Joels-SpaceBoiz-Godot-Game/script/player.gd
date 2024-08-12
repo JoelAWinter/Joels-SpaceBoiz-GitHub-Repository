@@ -153,7 +153,6 @@ func _on_oxygentimer_timeout():
 			global.oxygen_bar = 100
 	if global.oxygen_bar <= 0:
 		global.oxygen_bar = 0
+		global.oxygen_bar = 100
 		player_alive = false
-		get_tree().change_scene_to_file("res://scenes/main menu/main_menu.tscn")
-		
-		
+		get_tree().change_scene_to_file("res://scenes/end_screen.tscn")

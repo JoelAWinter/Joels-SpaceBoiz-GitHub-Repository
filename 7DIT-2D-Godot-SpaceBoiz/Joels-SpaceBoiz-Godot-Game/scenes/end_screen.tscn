@@ -1,0 +1,31 @@
+[gd_scene load_steps=3 format=3 uid="uid://d03rxpm347pgs"]
+
+[ext_resource type="Script" path="res://scenes/end_screen.gd" id="1_gdkaq"]
+[ext_resource type="Texture2D" uid="uid://bqwurdxetx372" path="res://art/New Piskel (3).png" id="1_vvy2n"]
+
+[node name="end_screen" type="Node2D"]
+script = ExtResource("1_gdkaq")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+offset_left = -33.0
+offset_top = -42.0
+offset_right = 2126.0
+offset_bottom = 1155.0
+texture = ExtResource("1_vvy2n")
+
+[node name="menu_button" type="Button" parent="."]
+offset_left = 925.0
+offset_top = 532.0
+offset_right = 1174.0
+offset_bottom = 608.0
+text = "Menu"
+
+[node name="exit" type="Button" parent="."]
+offset_left = 926.0
+offset_top = 623.0
+offset_right = 1171.0
+offset_bottom = 703.0
+text = "Exit Game"
+
+[connection signal="pressed" from="menu_button" to="." method="_on_menu_button_pressed"]
+[connection signal="pressed" from="exit" to="." method="_on_exit_pressed"]
